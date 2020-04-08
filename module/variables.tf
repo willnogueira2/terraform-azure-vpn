@@ -1,8 +1,15 @@
-variable "resource_group_name" {
-  description = "The name of the Resource Group that resources will be created in."
+variable "context" {
+  type = map(string)
+  default = {
+    project_name          = null
+    environment           = null
+    resource_group_name   = null
+    resource_location     = null
+  }
 }
 
-variable "resource_location" {
-  description = "The name of the location that resources will be created in"
-  default = "Australia Southeast"
+variable "has_default_subnet" {
+  type = bool
+  description = "(Optional) Whether to create a default subnet. It default to 'true'."
+  default = true
 }
